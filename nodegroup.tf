@@ -1,6 +1,6 @@
 ###################### NODE-GROUP ##########################
 resource "aws_eks_node_group" "eks_nodegroup" {
-  cluster_name    = aws_eks_cluster.eks_terraform.name
+  cluster_name    = var.cluster_name
   node_group_name = "ng"
   node_role_arn   = aws_iam_role.eks_nodegroup_role.arn
   subnet_ids      = [ aws_subnet.pvtsub1.id, aws_subnet.pvtsub2.id, aws_subnet.pvtsub3.id ]
