@@ -110,7 +110,7 @@ resource "aws_nat_gateway" "eks-nat" {
 }
 
 resource "aws_eip" "eks-nat-eip" {
-  vpc              = true
+  vpc      = true
 
   tags = {
     Name = "eks-nat-eip"
@@ -139,7 +139,8 @@ resource "aws_route_table" "eks-pvt-rt" {
   vpc_id = aws_vpc.vpc-for-eks.id
 
   route {
-    cidr_block = aws_subnet.pubsub1.cidr_block
+    #cidr_block = aws_subnet.pubsub1.cidr_block
+    cidr_block = "0.0.0.0/0"
     gateway_id = aws_nat_gateway.eks-nat.id
   }
 
