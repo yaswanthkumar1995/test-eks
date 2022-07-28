@@ -21,7 +21,7 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "ap-south-1"
-  profile = "naveen-terraform"
+#  profile = "naveen-terraform"
   ignore_tags {
     key_prefixes = ["kubernetes.io/"]
   }
